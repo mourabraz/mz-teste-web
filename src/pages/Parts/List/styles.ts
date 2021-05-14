@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 16px;
+  background-color: white;
+  padding: 8px;
+  border-radius: 8px;
 `;
 
 export const ToolBox = styled.div`

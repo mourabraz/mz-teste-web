@@ -2,6 +2,7 @@ import React from 'react';
 import { FiSearch, FiArrowDown, FiArrowUp } from 'react-icons/fi';
 
 import { Input } from '../../../components/Input';
+import { InputAutoComplete } from '../../../components/InputAutocomplete';
 import { Item } from './components/Item';
 
 import { Container, ToolBox, Items } from './styles';
@@ -23,8 +24,9 @@ export const List: React.FC = () => {
           valueChange={v => console}
           placeholder="search..."
         />
-        <Input
+        <InputAutoComplete
           valueChange={v => console}
+          items={['Mouse', 'Mousepad', 'Keyboard', 'Monitor']}
           placeholder="type"
           placeholderPosition="center"
         />
