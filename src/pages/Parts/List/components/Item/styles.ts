@@ -16,4 +16,21 @@ export const Container = styled.div`
       text-align: right;
     }
   }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      filter: brightness(0.5);
+    }
+  }
+
+  &:hover {
+    background-color: #f8f8f8;
+  }
 `;
