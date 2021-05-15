@@ -21,14 +21,15 @@ html {
 
 body {
   background: #dedede;
-  color: #333;
+  background: linear-gradient(145deg, #dedede 3.25%, #ccc 99.18%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, input, button, textarea {
+body, input, button {
   font: 1.4rem 'Roboto', sans-serif;
   line-height: 1.6;
+  color: #444;
 }
 
 h1, h2, h3, h4, h5, h6 {
