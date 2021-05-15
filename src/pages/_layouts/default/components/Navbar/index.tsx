@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
     <Container>
       <Content>
         <nav>
-          <NavLink to="/">
+          <NavLink to="/" exact>
             <span>List Parts</span>
           </NavLink>
         </nav>
