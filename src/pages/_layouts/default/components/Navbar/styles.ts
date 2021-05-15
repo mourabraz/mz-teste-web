@@ -5,11 +5,7 @@ export const Container = styled.header`
   z-index: 2;
   width: 100%;
   height: 62px;
-  background: linear-gradient(
-    112.04deg,
-    rgb(19, 0, 64) 3.25%,
-    rgb(37, 1, 120) 99.18%
-  );
+  background: linear-gradient(112.04deg, #130040 3.25%, #250178 99.18%);
   box-shadow: rgb(0 0 0 / 20%) 0px 4px 8px;
   top: 0px;
 `;
@@ -37,7 +33,7 @@ export const Content = styled.div`
 
       &.active {
         span {
-          border-bottom: 1px solid rgb(194, 47, 62);
+          border-bottom: 1px solid #c22f3e;
         }
       }
     }
