@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface IHeaderProps {
-  placeholderPosition?: 'left' | 'center' | 'right';
+  isEmpty: boolean;
 }
 
 export const Container = styled.div`
@@ -15,27 +15,33 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  user-select: none;
 `;
 
-export const Header = styled.div<IHeaderProps>`
+export const Header = styled.button<IHeaderProps>`
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 
-  input {
+  p {
     flex: 1;
     background: transparent;
-    border: 0;
-
-    &::placeholder {
-      color: #aaa;
-      text-align: ${props => props.placeholderPosition};
-    }
+    font-style: ${props => (props.isEmpty ? 'italic' : 'normal')};
+    color: ${props => (props.isEmpty ? '#aaa' : 'inherit')};
   }
 
-  svg {
+  > span {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > svg {
     margin-left: 8px;
   }
 `;
@@ -44,14 +50,13 @@ export const List = styled.div`
   position: absolute;
   top: 42px;
   z-index: 10;
-  /* overflow-y: scroll; */
   width: 100%;
   max-height: 215px;
-  border: 1px solid rgb(223, 223, 223);
+  border: 1px solid #dfdfdf;
   border-top: none;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
-  box-shadow: 0 2px 5px -1px rgb(232, 232, 232);
+  box-shadow: 0 2px 5px -1px #e8e8e8;
   background-color: white;
   font-weight: 700;
   text-align: left;
@@ -81,6 +86,6 @@ export const ListItem = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: yellow;
+    background-color: #dfdfdf;
   }
 `;
