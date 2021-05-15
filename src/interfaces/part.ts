@@ -1,5 +1,12 @@
+export interface PartResponse {
+  name: string;
+  type: string;
+  price: string;
+}
+
 export interface Part {
   name: string;
   type: string;
-  price: number;
+  price: string;
+  value: number;
 }
