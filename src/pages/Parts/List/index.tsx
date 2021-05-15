@@ -99,7 +99,7 @@ export const List: React.FC = () => {
         <Input
           icon={FiSearch}
           iconColor="#c22f3e"
-          valueChange={v => console}
+          valueChange={setQuery}
           placeholder="search..."
         />
         <Combobox

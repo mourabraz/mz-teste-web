@@ -12,7 +12,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: React.FC<InputProps> = ({
-  time = 600,
+  time = 300,
   valueChange,
   icon: Icon,
   iconColor = '#444',

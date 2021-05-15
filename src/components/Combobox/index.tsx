@@ -40,10 +40,9 @@ const Combobox: React.FC<IComboboxProps> = ({
       setSelected(s);
       setHeaderTitle(s || title);
       onSelected(s);
-      console.log(s);
     },
 
-    [onSelected],
+    [onSelected, title],
   );
 
   const handleClickToSelect = useCallback(
