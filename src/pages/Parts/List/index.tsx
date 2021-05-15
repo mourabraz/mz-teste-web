@@ -104,7 +104,7 @@ export const List: React.FC = () => {
         />
         <Combobox
           title={type || 'type'}
-          list={['Mouse', 'Mousepad', 'Keyboard', 'Monitor']}
+          list={typeParts}
           onSelected={setType}
           loading={loadingTypes}
           loadingColor="#c22f3e"
