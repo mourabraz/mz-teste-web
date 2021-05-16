@@ -8,7 +8,7 @@ import { List as ListParts } from './pages/Parts/List';
 import { Show as ShowPart } from './pages/Parts/Show';
 import { Default } from './pages/_layouts/default';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ErrorProvider>
@@ -24,5 +24,3 @@ const App: React.FC = () => {
     </BrowserRouter>
   );
 };
-
-export default App;

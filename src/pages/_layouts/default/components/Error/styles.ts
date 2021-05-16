@@ -16,7 +16,9 @@ export const Container = styled.div`
   border-radius: 8px;
   background-color: #ffbaba;
   color: #a70000;
+`;
 
+export const Header = styled.div`
   button {
     position: absolute;
     top: 4px;
@@ -29,3 +31,7 @@ export const Container = styled.div`
     background-color: #a70000;
   }
 `;
+
+export const Content = styled.div``;
+
+export const MessagesBox = styled.div``;

@@ -39,7 +39,7 @@ export const List: React.FC = () => {
   const [order, setOrder] = useState<'asc' | 'desc'>('asc');
   const [type, setType] = useState<string | null>(null);
   const [query, setQuery] = useState<string | null>(null);
-  const error = useError();
+  const { setVisible, setMessages, setTitle } = useError();
 
   useEffect(() => {
     async function load() {
@@ -50,9 +50,13 @@ export const List: React.FC = () => {
         );
         const result = (await responseJson.json()).sort();
         setTypeParts([...result]);
-        setLoadingTypes(false);
       } catch (error) {
-        console.error(error);
+        // console.error(err);
+        setTitle('Error:');
+        setMessages([error?.message || JSON.stringify(error)]);
+        setVisible(true);
+      } finally {
+        setLoadingTypes(false);
       }
     }
     load();
@@ -79,9 +83,13 @@ export const List: React.FC = () => {
 
         setParts([...result]);
         setOrder('asc');
-        setLoading(false);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
+        setTitle('Error:');
+        setMessages([error?.message || JSON.stringify(error)]);
+        setVisible(true);
+      } finally {
+        setLoading(false);
       }
     }
 
