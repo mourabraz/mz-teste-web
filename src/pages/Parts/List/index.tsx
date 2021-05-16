@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 
 import { Part, PartResponse } from '../../../interfaces/part';
+import { useError } from '../../../hooks/error';
 
 import { Input } from '../../../components/Input';
 import { OrderButton } from '../../../components/OrderButton';
-import Loading from '../../../components/Loading';
+import { Loading } from '../../../components/Loading';
+import { Combobox } from '../../../components/Combobox';
 import { Item } from './components/Item';
 
 import { Container, ToolBox, Items, InfoBox } from './styles';
-import Combobox from '../../../components/Combobox';
 
 const priceToNumber = (str: string): number => {
   let strToNumber = str;
@@ -38,6 +39,7 @@ export const List: React.FC = () => {
   const [order, setOrder] = useState<'asc' | 'desc'>('asc');
   const [type, setType] = useState<string | null>(null);
   const [query, setQuery] = useState<string | null>(null);
+  const error = useError();
 
   useEffect(() => {
     async function load() {

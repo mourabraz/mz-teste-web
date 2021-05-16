@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { FiChevronUp, FiChevronDown, FiCheck } from 'react-icons/fi';
 
-import Loading from '../Loading';
+import { Loading } from '../Loading';
 
 import { Container, Header, List, ScrollList, ListItem } from './styles';
 
@@ -14,7 +14,7 @@ interface IComboboxProps {
   onSelected(value: string): void;
 }
 
-const Combobox: React.FC<IComboboxProps> = ({
+export const Combobox: React.FC<IComboboxProps> = ({
   title,
   list,
   loading,
@@ -94,5 +94,3 @@ const Combobox: React.FC<IComboboxProps> = ({
     </Container>
   );
 };
-
-export default Combobox;

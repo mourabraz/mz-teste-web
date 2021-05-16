@@ -8,7 +8,7 @@ interface ILoadingProps {
   stroke?: number;
 }
 
-const Loading: React.FC<ILoadingProps> = ({
+export const Loading: React.FC<ILoadingProps> = ({
   color = '#444',
   size = 20,
   stroke = 2,
@@ -24,5 +24,3 @@ const Loading: React.FC<ILoadingProps> = ({
     />
   </Container>
 );
-
-export default Loading;
