@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { Container } from './styles';
 
 export const Error: React.FC = () => {
-  return (
-    <Container>
-      <button type="button">
-        <FiX size={14} color="white" />
-      </button>
+  const [open, setOPen] = useState(true);
 
-      <p>Error message as an example!</p>
-    </Container>
+  return (
+    <>
+      {open ? (
+        <Container>
+          <button type="button" title="Close">
+            <FiX size={14} color="white" onClick={() => setOPen(false)} />
+          </button>
+
+          <p>Error message as an example!</p>
+        </Container>
+      ) : null}
+    </>
   );
 };
