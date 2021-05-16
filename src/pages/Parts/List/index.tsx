@@ -58,13 +58,9 @@ export const List: React.FC = () => {
       } finally {
         setLoadingTypes(false);
       }
-
-      setTitle('Error:');
-      setMessages(['teste de erro', 'erro em duas linhas']);
-      setVisible(true);
     }
     load();
-  }, []);
+  }, [setTitle, setVisible, setMessages]);
 
   useEffect(() => {
     async function load() {
@@ -98,7 +94,7 @@ export const List: React.FC = () => {
     }
 
     load();
-  }, [type, query]);
+  }, [type, query, setTitle, setVisible, setMessages]);
 
   const handleClickOrder = (toOrder: 'asc' | 'desc'): void => {
     setOrder(toOrder);
@@ -111,6 +107,7 @@ export const List: React.FC = () => {
 
       <ToolBox>
         <Input
+          name="search"
           icon={FiSearch}
           iconColor="#c22f3e"
           valueChange={setQuery}

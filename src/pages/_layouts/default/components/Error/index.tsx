@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { FiX } from 'react-icons/fi';
 
 import { useError } from '../../../../../hooks/error';
@@ -6,16 +6,11 @@ import { useError } from '../../../../../hooks/error';
 import { Container, Header, Content, MessagesBox } from './styles';
 
 export const Error: React.FC = () => {
-  const { visible, setVisible, title, setTitle, messages, setMessages, clear } =
-    useError();
-
-  useEffect(() => {
-    setVisible(true);
-  }, []);
+  const { visible, title, messages, clear } = useError();
 
   const handleClickToClose = useCallback(() => {
     clear();
-  }, []);
+  }, [clear]);
 
   return (
     <>
