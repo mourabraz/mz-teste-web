@@ -13,7 +13,7 @@ export const Loading: React.FC<ILoadingProps> = ({
   size = 20,
   stroke = 2,
 }) => (
-  <Container color={color} size={size - 5}>
+  <Container data-testid="loading" color={color} size={size - 5}>
     <circle
       className="path"
       cx={(size - 5) / 2}
