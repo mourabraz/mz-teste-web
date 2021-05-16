@@ -7,8 +7,6 @@ interface ErrorContextData {
   setVisible(visible: boolean): void;
   setTitle(title: string): void;
   setMessages(messages: string[]): void;
-  child: React.ReactElement | null;
-  setChild(child: React.ReactElement | null): void;
   clear(): void;
 }
 
@@ -18,13 +16,11 @@ const ErrorProvider: React.FC = ({ children }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const [title, setTitle] = useState<string>('');
   const [messages, setMessages] = useState<string[]>([]);
-  const [child, setChild] = useState<React.ReactElement | null>(null);
 
   const clear = useCallback(() => {
     setVisible(false);
     setTitle('');
     setMessages([]);
-    setChild(null);
   }, []);
 
   return (
@@ -36,8 +32,6 @@ const ErrorProvider: React.FC = ({ children }) => {
         setVisible,
         setTitle,
         setMessages,
-        child,
-        setChild,
         clear,
       }}
     >

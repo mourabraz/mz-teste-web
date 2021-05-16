@@ -6,17 +6,8 @@ import { useError } from '../../../../../hooks/error';
 import { Container, Header, Content, MessagesBox } from './styles';
 
 export const Error: React.FC = () => {
-  const {
-    visible,
-    setVisible,
-    title,
-    setTitle,
-    messages,
-    setMessages,
-    child,
-    setChild,
-    clear,
-  } = useError();
+  const { visible, setVisible, title, setTitle, messages, setMessages, clear } =
+    useError();
 
   useEffect(() => {
     setVisible(true);
@@ -46,7 +37,6 @@ export const Error: React.FC = () => {
                 ))}
               </MessagesBox>
             ) : null}
-            {child}
           </Content>
         </Container>
       ) : null}

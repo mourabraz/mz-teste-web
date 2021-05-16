@@ -9,9 +9,9 @@ export const Container = styled.div`
   min-height: 115px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   z-index: 2;
-  padding: 24px 16px;
+  padding: 8px;
   border: solid 1px red;
   border-radius: 8px;
   background-color: #ffbaba;
@@ -19,11 +19,21 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
-  button {
-    position: absolute;
-    top: 4px;
-    right: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  width: 100%;
+  margin-bottom: 16px;
+
+  p {
+    font-weight: bold;
+  }
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     border-radius: 50%;
     width: 20px;

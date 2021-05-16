@@ -58,6 +58,10 @@ export const List: React.FC = () => {
       } finally {
         setLoadingTypes(false);
       }
+
+      setTitle('Error:');
+      setMessages(['teste de erro', 'erro em duas linhas']);
+      setVisible(true);
     }
     load();
   }, []);
