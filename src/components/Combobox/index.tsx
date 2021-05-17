@@ -12,6 +12,7 @@ interface IComboboxProps {
   loadingColor?: string;
   iconColor?: string;
   onSelected(value: string): void;
+  disabled?: boolean;
 }
 
 export const Combobox: React.FC<IComboboxProps> = ({
@@ -21,9 +22,9 @@ export const Combobox: React.FC<IComboboxProps> = ({
   loadingColor,
   iconColor = '#444',
   onSelected,
+  disabled = false,
 }) => {
   const [open, setOpen] = useState(false);
-  const [headerTitle, setHeaderTitle] = useState(() => title);
   const [selected, setSelected] = useState<string>();
   const [items, setItems] = useState<string[]>([]);
 
@@ -32,17 +33,18 @@ export const Combobox: React.FC<IComboboxProps> = ({
   }, [list]);
 
   const toggle = useCallback((): void => {
-    setOpen(state => !state);
-  }, []);
+    if (!disabled) {
+      setOpen(state => !state);
+    }
+  }, [disabled]);
 
   const selectItem = useCallback(
     (s: string): void => {
       setSelected(s);
-      setHeaderTitle(s || title);
       onSelected(s);
     },
 
-    [onSelected, title],
+    [onSelected],
   );
 
   const handleClickToSelect = useCallback(
@@ -59,16 +61,14 @@ export const Combobox: React.FC<IComboboxProps> = ({
         type="button"
         onClick={toggle}
         isEmpty={!selected}
-        disabled={!list.length}
+        disabled={disabled}
       >
         {loading ? (
           <span>
             <Loading color={loadingColor} />
           </span>
         ) : (
-          <p>
-            {list.length ? headerTitle || 'Select one' : 'This list is empty'}
-          </p>
+          <p>{title}</p>
         )}
 
         {open ? (

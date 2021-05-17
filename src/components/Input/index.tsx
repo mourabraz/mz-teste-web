@@ -9,6 +9,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ComponentType<IconBaseProps>;
   iconColor?: string;
   placeholderPosition?: 'left' | 'center' | 'right';
+  disabled?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -17,6 +18,7 @@ export const Input: React.FC<InputProps> = ({
   icon: Icon,
   iconColor = '#444',
   placeholderPosition = 'left',
+  disabled = false,
   ...rest
 }) => {
   const timer = useRef(0);
@@ -35,11 +37,12 @@ export const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <Container placeholderPosition={placeholderPosition}>
+    <Container placeholderPosition={placeholderPosition} disabled={disabled}>
       <input
         type="text"
         value={inputValue}
         onChange={handleChangeInput}
+        disabled={disabled}
         {...rest}
       />
       {Icon && <Icon size={20} color={iconColor} />}

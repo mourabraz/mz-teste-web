@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 interface ContainerProps {
   placeholderPosition?: 'left' | 'center' | 'right';
+  disabled: boolean;
 }
 
 export const Container = styled.div<ContainerProps>`
@@ -24,9 +25,21 @@ export const Container = styled.div<ContainerProps>`
       color: #aaa;
       text-align: ${props => props.placeholderPosition};
     }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 
   svg {
     margin-left: 8px;
   }
+
+  ${props =>
+    props.disabled
+      ? css`
+          opacity: 0.5;
+          cursor: not-allowed;
+        `
+      : null}
 `;

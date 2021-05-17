@@ -9,20 +9,24 @@ interface OrderButtonProps {
   order: 'asc' | 'desc';
   iconColor?: string;
   onOrderChange: (order: 'asc' | 'desc') => void;
+  disabled?: boolean;
 }
 export const OrderButton: React.FC<OrderButtonProps> = ({
   label = '',
   title = '',
   order,
   iconColor = '#444',
+  disabled = false,
   onOrderChange,
 }) => {
   const handleClick = () => {
-    onOrderChange(order === 'asc' ? 'desc' : 'asc');
+    if (!disabled) {
+      onOrderChange(order === 'asc' ? 'desc' : 'asc');
+    }
   };
 
   return (
-    <Container title={title}>
+    <Container title={title} disabled={disabled}>
       <button type="button" onClick={handleClick}>
         {label ? <span>{label}</span> : null}
         {order === 'asc' ? (

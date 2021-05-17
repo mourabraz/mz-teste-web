@@ -1,8 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-interface IHeaderProps {
+interface HeaderProps {
   isEmpty: boolean;
+  disabled: boolean;
 }
+
+/* interface ContainerProps {} */
 
 export const Container = styled.div`
   position: relative;
@@ -18,7 +21,7 @@ export const Container = styled.div`
   user-select: none;
 `;
 
-export const Header = styled.button<IHeaderProps>`
+export const Header = styled.button<HeaderProps>`
   display: flex;
   width: 100%;
   align-items: center;
@@ -44,6 +47,14 @@ export const Header = styled.button<IHeaderProps>`
   > svg {
     margin-left: 8px;
   }
+
+  ${props =>
+    props.disabled
+      ? css`
+          opacity: 0.5;
+          cursor: not-allowed;
+        `
+      : null}
 `;
 
 export const List = styled.div`

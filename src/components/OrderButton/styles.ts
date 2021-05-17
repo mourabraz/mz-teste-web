@@ -1,6 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+interface ContainerProps {
+  disabled: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   width: 100%;
   padding: 8px;
 
@@ -23,5 +27,19 @@ export const Container = styled.div`
       width: 100%;
       text-align: center;
     }
+
+    ${props =>
+      props.disabled
+        ? css`
+            cursor: not-allowed;
+          `
+        : null}
   }
+
+  ${props =>
+    props.disabled
+      ? css`
+          opacity: 0.5;
+        `
+      : null}
 `;

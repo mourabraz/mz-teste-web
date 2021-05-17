@@ -112,6 +112,7 @@ export const List: React.FC = () => {
           iconColor="#c22f3e"
           valueChange={setQuery}
           placeholder="search..."
+          disabled={loading}
         />
         <Combobox
           title={type || 'type'}
@@ -120,6 +121,7 @@ export const List: React.FC = () => {
           loading={loadingTypes}
           loadingColor="#c22f3e"
           iconColor="#c22f3e"
+          disabled={loading || loadingTypes}
         />
         <OrderButton
           order={order}
@@ -127,6 +129,7 @@ export const List: React.FC = () => {
           title="price order"
           label="price order"
           onOrderChange={handleClickOrder}
+          disabled={loading}
         />
       </ToolBox>
 
